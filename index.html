@@ -539,14 +539,13 @@
             navLinks.classList.toggle('active');
         });
 
-        // Close menu when clicking on a link
+       
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', function() {
                 navLinks.classList.remove('active');
             });
         });
 
-        // Close menu when clicking outside
         document.addEventListener('click', function(event) {
             if (!event.target.closest('.nav-container')) {
                 navLinks.classList.remove('active');
@@ -554,6 +553,7 @@
         });
     </script>
 
+
+
 </body>
 </html>
-
