@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Website</title>
+
+    <!-- Poppins for body, Georgia for navbar (matching screenshot style) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* ============================
+           NAVIGATION BAR
+        ============================ */
+        nav {
+            background: #f3666a;
+            padding: 0.8rem 2rem;
+            position: sticky;
+            height: 60px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            position: relative;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 3.5rem; /* BIGGER SPACE – matches screenshot */
+            font-family: Georgia, 'Times New Roman', serif; /* EXACT LOOK */
+            font-weight: bold;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #000;
+            font-size: 1.25rem;
+            letter-spacing: 2px; /* SPACING LIKE YOUR IMAGE */
+        }
+
+        /* Menu icon on right side */
+        .menu-btn {
+            position: absolute;
+            right: 20px;
+            top: 12px;
+            cursor: pointer;
+        }
+
+        .menu-btn img {
+            width: 40px;
+            height: auto;
+            margin-top: -5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            min-height: 90vh;
+            background: linear-gradient(135deg, #feeeb9 0%, #fff9e6 0%, #ffd6f5 100%);
+        }
+
+        .hero-content {
+            flex: 1;
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(135deg, #ffe281 0%, #ffd6f5 100%);
+        }
+
+        /* Updated font here EXACTLY matching your second screenshot */
+        .hero-content h1 {
+            font-size: 55px;
+            font-weight: 600; /* Changed from 900 */
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 4px; /* Increased spacing to match screenshot */
+        }
+
+        .hero-content p {
+            font-size: 1.05rem;
+            font-weight: 300;
+            line-height: 1.9;
+            margin-bottom: 2rem;
+            color: #3b3b3b;
+            max-width: 600px;
+        }
+
+        .hero-btn {
+            background: #f3666a;
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            font-weight: 400;
+            width: 230px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 138, 158, 0.4);
+        }
+
+        .hero-image {
+            flex: 1;
+            background-image: url('images/pexels-robin-stickel-70497.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 400px;
+        }
+
+        /* ============================
+           SECTION TWO
+        ============================ */
+        .section-two {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 0;
+            background: linear-gradient(135deg, #feeeb9 0%, #ffe3f3 50%, #ffcaff 100%);
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: 260px 260px;
+            grid-template-rows: 260px 260px;
+            gap: 22px;
+            margin-right: 80px;
+            margin-left: -40px;
+        }
+
+        .image-grid div {
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Image order EXACT as screenshot */
+        .img1 { 
+            background-image: url('images/pexels-rachel-claire-6752433.jpg');
+            height: 200px;
+        } 
+
+        /* UPDATED IMG2 — FIXED */
+        .img2 { 
+            background-image: url('images/pexels-mister-mister-3434523.jpg');
+            background-size: cover;
+            background-position: center top; 
+            height: 425px;
+        }
+
+        .img3 {
+             background-image: url('images/pexels-eva-bronzini-6141651.jpg');
+             height: 200px;
+             margin-top: -55px;
+            }
+        .img4 { background-color: transparent; }
+
+        /* Coral card EXACT appearance */
+        .info-card {
+            background: #f3666a;
+            padding: 30px 70px;
+            width: 380px;
+            border: none;
+            margin-top: -80px
+        }
+
+        .info-card small {
+            font-size: 14px;
+            letter-spacing: 2px;
+            font-weight: 500;
+            color: #000;
+        }
+
+        .info-card h2 {
+            font-size: 50px;
+            font-weight: 700;
+            margin: 20px 0 30px 0;
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #000;
+            
+        }
+
+        .info-card a {
+            text-decoration: none;
+            color: #000;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .arrow {
+            margin-left: 10px;
+            font-size: 20px;
+        }
+
+        .click-link {
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero, .section-two {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                right: -100%;
+                flex-direction: column;
+                background: #fecfef;
+                width: 70%;
+                padding: 2rem;
+                transition: right 0.3s;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .menu-icon {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#order">Order</a></li>
+                <li><a href="#food">Food</a></li>
+                <li><a href="#restaurant">Restaurant</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+
+                        <!-- MENU ICON RIGHT SIDE -->
+            <div class="menu-btn">
+                <img src="images/menu-bar.png" alt="Menu Icon">
+            </div>
+
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>LOREM IPSUM</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id est vitae dolor rhoncus tristique. Maecenas metus quam, rhoncus euismod lorem in, sollicitudin viverra eros. Donec dictum luctus quam ut tristique. Curabitur nec faucibus purus. Quisque congue sem nec justo mollis, in tincidunt erat pretium. Sed pulvinar massa ac porta viverra.</p>
+            <button class="hero-btn">Click Me</button>
+        </div>
+
+        <div class="hero-image"></div>
+    </section>
+
+    <section class="section-two">
+        <div class="section-two-images">
+            <div class="grid-image"></div>
+            <div class="grid-image"></div>
+            <div class="grid-image"></div>
+            <div class="grid-image"></div>
+        </div>
+
+        <!-- LEFT 2×2 IMAGE GRID -->
+        <div class="image-grid">
+            <div class="img1"></div>
+            <div class="img2"></div>
+            <div class="img3"></div>
+            <div class="img4"></div>
+        </div>
+        
+        <!-- RIGHT CORAL CARD -->
+        <div class="info-card">
+            <small>LOREM IPSUM</small>
+            <h2>LOREM IPSUM<br>SET ADEMIR</h2>
+            <a href="#">Click <span class="arrow">➜</span></a>
+        </div>
+    </section>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
